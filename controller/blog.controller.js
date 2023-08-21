@@ -15,7 +15,7 @@ exports.createBlog = async (req, res) => {
    return res.status(500).json({ error: 'Error creating blog post' });
   }
 };
- //Blog Posts List
+ //Blog Post By Id
 
 exports.viewBlog = async (req,res)=>{
 try {
@@ -26,6 +26,8 @@ try {
     console.error('Error creating blog post:', error);
       return res.status(500).json({error:' server error viewing blog post'}) 
 }};
+
+ //All Blogs Post 
 
 exports.viewAllBlog = async (req,res)=>{
 try {

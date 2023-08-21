@@ -4,7 +4,7 @@
 - [Prerequisites](#Prerequisites)
 - [Getting Started](#Getting-started)
 - [API Endpoints](#API-endpoints)
--[Authentication](#Authentication)
+- [Authentication](#Authentication)
 - [Dependencies](#Dependencies)
 - [Contributing](#Contributing)
 - [Dependencies](#Dependencies)
@@ -31,18 +31,18 @@ npm install express sequelize pg pg-hstore body-parser dotenv jsonwebtoken bcryp
 ## API Endpoints
 User:
 ```
-- `POST  /signup`: Create a new user
-- `POST  /login`:  Login existing user
+ `POST  /api/signup`: Create a new user
+ `POST  /api/login`:  Login existing user
 
 ```
 
 Blog:
 ```
-- `POST  /blog`: Create a new blog post
-- `GET  /blogs`: Get all blog post
-- `GET  /blog/:id`: Get a specific blog post by ID
-- `PUT  /blog/:id`: Update a  blog post
-- `DELETE  /blog/:id`: Delete a blog post
+ `POST  /api/blog`: Create a new blog post
+ `GET  /api/blogs`: Get all blog post
+ `GET  /api/blog/:id`: Get a specific blog post by ID
+ `PUT  /api/blog/:id`: Update a  blog post
+ `DELETE  /api/blog/:id`: Delete a blog post
 
 ```
 
@@ -57,7 +57,7 @@ This API supports token-based authentication. Use thr provided `/login` endpoint
 - jsonwebtoken: Token-based authentication
 - body-parser: Parsing JSON data from request
 - Bcrypt: encrypting of password
-- dotenv: 
+- dotenv: storing configuration
 
 
 ## Contributing
@@ -68,3 +68,4 @@ This  project is licensed under the MIT License
 
 ## Testing API
 Postman doc:
+[Postman docs](https://documenter.getpostman.com/view/22408266/2s9Y5TxjNF)
