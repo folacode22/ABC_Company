@@ -1,4 +1,5 @@
 # ABC Company, Inc
+We want to enhance our blog software for ABC Company, Inc. Create/Edit/Delete capable users should be valid users in the system. Users that read the data don’t have to be registered with the system. Assume all users have the same role and permission levels (with the noted author exception below). Each blog post should be associated with an author that is a valid user of our blog system. We want only the original author being able to edit their own blog posts.
 
 ## Table  of Contents
 - [Prerequisites](#Prerequisites)
@@ -13,10 +14,11 @@
 
 
 ## Prerequisites
-- Nodejs
-- Sequelize
-- Postgresql
-- jsonwebtoken
+- Express.js(Application framework)
+- Sequelize(ORM)
+- Error Handling(try/catch)
+- Postgresql(Database)
+- jsonwebtoken(Authorization)
 
 
 ## Getting Started

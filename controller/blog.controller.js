@@ -11,6 +11,7 @@ exports.createBlog = async (req, res) => {
     const blog = await Blog.create({ title, content, authorId: userId });
    return res.status(201).json(blog);
   } catch (error) {
+
     console.error('Error creating blog post:', error);
    return res.status(500).json({ error: 'Error creating blog post' });
   }
@@ -25,6 +26,7 @@ try {
 } catch (error) {
     console.error('Error creating blog post:', error);
       return res.status(500).json({error:' server error viewing blog post'}) 
+
 }};
 
  //All Blogs Post 
@@ -34,6 +36,8 @@ try {
     const read_blog = await Blog.findAll();
     return res.status(200).json({message:'viewing all Blogs Post',feedback:read_blog})
 } catch (error) {
+ 
+      console.error('server error viewing all Blog Post:', error);
       return res.status(500).json({error:' server error viewing all Blog Post'}) 
 }};
 
@@ -58,6 +62,7 @@ exports.updateBlog =  async (req, res) => {
     const updatedBlog = await blog.update({ title, content });
     res.json(updatedBlog);
   } catch (error) {
+    // handling error
     console.error('Error updating blog post:', error);
    return res.status(500).json({ error: 'Error updating blog post' });
   }
@@ -80,6 +85,7 @@ const userId = req.user.userId;
 await blog.destroy();
 return res.status(200).json({message:'Blog post deleted'})
 } catch (error) {
+  
      console.error('server error update blog post:', error);
      return res.status(500).json({ error:'internal error deleting blog post'})   
 }

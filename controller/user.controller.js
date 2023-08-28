@@ -1,7 +1,6 @@
 const db = require('../model');
-
 const User = db.user;
-
+// security
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -16,13 +15,18 @@ username,
 password:hashPassword,
 })
    return res.status(201).json({ message:' user create successfully',feedback:user})
-} catch (error) { return res.status(500).json({ error:' server error create user '})
+} 
+ catch (error)
+ { 
+  console.error('server error create user:', error);
+  return res.status(500).json({ error:' server error create user '})
 }
 };
 
 // login user
 exports.userLogin =  async (req, res) => {
-  const { username, password } = req.body;
+  try {
+   const { username, password } = req.body;
   const user = await User.findOne({ where: { username } });
 
   if (!user) {
@@ -37,5 +41,10 @@ exports.userLogin =  async (req, res) => {
 
   const token = jwt.sign({ userId: user.id },process.env.SECRET_KEY, { expiresIn: '1h' });
 
-  res.json({ token });
+  res.json({ token }); 
+  } catch (error) {
+    
+     console.error('server error Login User:', error);
+  return res.status(500).json({ error:' server error Login User '})
+  }
 }
